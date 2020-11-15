@@ -1,5 +1,5 @@
 # Nitro Angular Components Library
-Nitro Angular Library
+Nitro Angular Components Library
 
 # Nitro Otp / Pin Input `0.4.0`
 

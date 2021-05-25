@@ -93,11 +93,11 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.1&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.1&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
-  ![Angular Library - Nitro popup](https://img.shields.io/static/v1?label=Angular&message=12.0.0&color=green?style=for-the-badge&logo=angular)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=Angular&message=12.0.0&color=green?style=for-the-badge&logo=angular)
 ](https://www.npmjs.com/package/nitro-popup)
 
 Nitro Popup can be used for Popups / Modals / Dialog Boxes and even also this can be used as context menu also. Inbuilt support added for overriding context menus.
@@ -113,7 +113,7 @@ Nitro Popup can be used for Popups / Modals / Dialog Boxes and even also this ca
 
 `app.module.ts`
 ```ts
-import { PopupModule } from '@nitro/popup';
+import { PopupModule } from 'nitro-popup';
 
 @NgModule({
   declarations: [
@@ -128,13 +128,20 @@ import { PopupModule } from '@nitro/popup';
 
 `some.component.ts`
 ```ts
-  import { PopupService } from 'projects/popup/src/public-api';
+  import { PopupService } from 'nitro-popup';
 
   // ...
   export class SomeComponent {
     constructor(
       public popupService: PopupService
     ) {
+    }
+
+    triggerPopupOpen():void {
+      openPopup({
+        event: new Event('open'),
+        template: popupRef
+      });
     }
 
     openPopup(opt: any): void {
@@ -147,7 +154,93 @@ import { PopupModule } from '@nitro/popup';
   }
 ```
 
-`some.component.html`
+`some.component.html` - _SIMPLE USE **Compact**_
+```html
+  <button (click)="openPopup({
+    event: $event,
+    template: popupRef
+  })" class="btn">OPEN POPUP</button>
+
+  <nitro-popup #popupRef [config]="{
+      width: '600px',
+      height: '600px',
+      id: 'popupYourID',
+      contentLayout: popupContentLayout
+    }">
+  </nitro-popup>
+
+  <ng-template #popupContentLayout>
+    <ng-container *ngTemplateOutlet="profileImage"></ng-container>
+  </ng-template>
+
+  <ng-template #popupHeaderLayout>
+    <span class="title">Title</span>
+    <button class="btn close" (click)="closePopup($event)">x</button>
+  </ng-template>
+  <ng-template #popupFooterLayout>
+    Footer
+  </ng-template>
+  <ng-template #popupSideLayout>
+    <nav>
+      <ul>
+      <li>
+        <button>Menu 1</button>
+      </li>
+      <li>
+        <button>Menu 2</button>
+      </li>
+    </ul>
+    </nav>
+  </ng-template>
+```
+
+`some.component.html` - _SIMPLE USE **with Animations and all Templates**_
+```html
+  <button (click)="openPopup({
+    event: $event,
+    template: popupRef
+  })" class="btn">OPEN POPUP</button>
+
+  <nitro-popup #popupRef [config]="{
+      width: '600px',
+      height: '600px',
+      id: 'popupDemo',
+      class: 'popupYourStyleClass or Classes',
+      animateIn: 'zoomIn',
+      animateOut: 'zoomOut'
+      sideLayout: popupSideLayout,
+      headerLayout: popupHeaderLayout,
+      footerLayout: popupFooterLayout,
+      contentLayout: popupContentLayout
+    }">
+  </nitro-popup>
+
+  <ng-template #popupContentLayout>
+    Popup Contents
+  </ng-template>
+
+  <ng-template #popupHeaderLayout>
+    <span class="title">Title</span>
+    <button class="btn close" (click)="closePopup($event)">x</button>
+  </ng-template>
+  <ng-template #popupFooterLayout>
+    Footer
+  </ng-template>
+  <ng-template #popupSideLayout>
+    <nav class="menu">
+      <ul>
+        <li>
+          <button>Menu 1</button>
+        </li>
+        <li>
+          <button>Menu 2</button>
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
+```
+
+`some.component.html` - _Growing from a target Element_
 ```html
   <button (click)="openPopup({
     event: $event,
@@ -171,18 +264,18 @@ import { PopupModule } from '@nitro/popup';
     }">
   </nitro-popup>
 
-  <ng-template #popupHeaderLayout>
+  <ng-template #popupContentLayout>
+    <ng-container *ngTemplateOutlet="profileImage"></ng-container>
+  </ng-template>
+
+  <!-- <ng-template #popupHeaderLayout>
     <span class="title">Title</span>
     <button class="btn close" (click)="closePopup($event)">x</button>
   </ng-template>
   <ng-template #popupFooterLayout>
     Footer
   </ng-template>
-  <ng-template #popupContentLayout>
-    <ng-container *ngTemplateOutlet="profileImage"></ng-container>
-  </ng-template>
   <ng-template #popupSideLayout>
-    <!-- SideBar -->
     <nav>
       <ul>
       <li>
@@ -193,7 +286,7 @@ import { PopupModule } from '@nitro/popup';
       </li>
     </ul>
     </nav>
-  </ng-template>
+  </ng-template> -->
 ```
 
 ## How to override context menu and open a custom Menu

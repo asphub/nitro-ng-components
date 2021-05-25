@@ -93,7 +93,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.1&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.3&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
@@ -291,6 +291,10 @@ import { PopupModule } from 'nitro-popup';
 
 ## How to override context menu and open a custom Menu
 ```html
+  <div class="customContextMenu" (contextmenu)="openPopup({
+      event: $event,
+      template: menu
+    })" style="width: 100%; height: 100%; top:0; left:0; position: fixed;"></div>
   <nitro-popup #menu [config]="{
     width: 'auto',
     height: 'auto',

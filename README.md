@@ -1,7 +1,7 @@
 # Nitro Angular Components Library
 Nitro is an upcoming Angular Components Library, which helps developer to integrate Angular components easily and are built with fully customizable options.
 
-# Nitro Otp
+# Nitro OTP
 
 [
   ![Angular Library - Nitro OTP](https://img.shields.io/static/v1?label=npm+package&message=0.5.0&color=green?style=for-the-badge&logo=npm)
@@ -93,7 +93,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.5&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.6&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
@@ -241,7 +241,7 @@ import { PopupModule } from 'nitro-popup';
   </ng-template>
 ```
 
-`some.component.html` - _Growing from a target Element_
+`some.component.html` - _Growing from a **target Element**_
 ```html
   <button #btnRef (click)="openPopup({
     event: $event,
@@ -295,7 +295,9 @@ import { PopupModule } from 'nitro-popup';
   <div class="customContextMenu" (contextmenu)="openPopup({
       event: $event,
       template: menu
-    })" style="width: 100%; height: 100%; top:0; left:0; position: fixed;background: rgba(0,0,0,0.2)">Right Button Click this area to get the CUSTOM MENU</div>
+    })" style="width: 100%; height: 100%; top:0; left:0; position: fixed;background: rgba(0,0,0,0.2)">
+    Right Button Click this area to get the CUSTOM MENU
+  </div>
 
   <nitro-popup #menu [config]="{
     width: 'auto',
@@ -317,11 +319,12 @@ import { PopupModule } from 'nitro-popup';
 ## API:
 |Name|Type|Default|Description|
 |---|---|---|---|
-|`id`|`String`| `""` | <details><summary>*ID (Mandatory)*</summary>This will set an ID for the popup template (Keep it unique) <br><br>__Eg.:__<br>`<nitro-popup [config]="{id: 'popupName'...}"></nitro-popup>`<br><br>__Accepted Values:__<br>`<any_string>`<br><br><blockquote>ID String will also be added as a class for the popup also.</blockquote></details>|
-|`width` and `height`|`String`| `100%` | <details><summary>*Width and height of popup (Mandatory)*</summary>Set width and height of the popup. The width can be of `%`, `px` or `auto` values as a string<br>__Eg.:__<br>`<nitro-popup [config]="{width: '600px', height: 'auto'}"></nitro-popup>`</details>|
+|`id`|`String`| `""` | <details><summary>*ID*</summary>This will set an ID for the popup template (Keep it unique) <br><br>__Eg.:__<br>`<nitro-popup [config]="{id: 'popupName'...}"></nitro-popup>`<br><br>__Accepted Values:__<br>`<any_string>`<br><br><blockquote>ID String will also be added as a class for the popup also.</blockquote></details>|
+|`width` and `height`|`String`| `100%` | <details><summary>*Width and height of popup*</summary>Set width and height of the popup. The width can be of `%`, `px` or `auto` values as a string<br>__Eg.:__<br>`<nitro-popup [config]="{width: '600px', height: 'auto'}"></nitro-popup>`</details>|
 |`css`|`String`| `""` | <details><summary>*Add custom CSS*</summary>Custom css will be applied as inline style to the Popup<br>__Eg.:__<br>`<nitro-popup [config]="{ css: {'max-width': '100vw','max-height': '100vh'}}"></nitro-popup>`</details>|
-|`animateIn`|`String`| `""` | <details><summary>*Class for Animate In*</summary> AnimateIn Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateIn: 'zoomIn'"></nitro-popup>`</details>|
-|`animateOut`|`String`| `""` | <details><summary>*Class for Animate Out*</summary> AnimateOut Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateOut: 'zoomOut'"></nitro-popup>`</details>|
+|`animateIn`|`String`| `""` | <details><summary>*Class for Animate In*</summary> AnimateIn Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateIn: 'zoomIn'}"></nitro-popup>`</details>|
+|`animateOut`|`String`| `""` | <details><summary>*Class for Animate Out*</summary> AnimateOut Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateOut: 'zoomOut' }"></nitro-popup>`</details>|
+|`overlay`| `String` / `boolean`| `""` | <details><summary>*Various Overlay Types*</summary>Toggle Overlay Show/Hide or blocks/allow clicks outside the popup<br>Accepted Values are `true`, `false`, `transparent`, `none`, `transparent_none` <br>__Eg.:__<br>`<nitro-popup [config]="{overlay: 'transparent'}"></nitro-popup>`</details>|
 |`headerLayout`|`TemplateRef`| `null` | <details><summary>*Header Template*</summary>HTML Template for header<br>__Eg.:__<br>`<nitro-popup [config]="{headerLayout: headerTemplateElementRef}"></nitro-popup>`</details>|
 |`footerLayout`|`TemplateRef`| `null` | <details><summary>*Footer Template*</summary>HTML Template for footer<br>__Eg.:__<br>`<nitro-popup [config]="{footerLayout: footerTemplateElementRef}"></nitro-popup>`</details>|
 |`contentLayout`|`TemplateRef`| `null` | <details><summary>*Content Template*</summary>HTML Template for content<br>__Eg.:__<br>`<nitro-popup [config]="{contentLayout: contentTemplateElementRef}"></nitro-popup>`</details>|

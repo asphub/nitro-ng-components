@@ -93,7 +93,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.3&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.5&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
@@ -107,7 +107,8 @@ Nitro Popup can be used for Popups / Modals / Dialog Boxes and even also this ca
 1. *Light weight*
 2. *Fully configurable with just one JSON object for each Popup*
 3. *Layouts & Templates can be controlled using `<ng-template>`*
-4. *In-Built Animation Support*
+4. *Easy Override with CSS styles*
+5. *In-Built Animation Support*
 
 ## Usage
 
@@ -242,14 +243,14 @@ import { PopupModule } from 'nitro-popup';
 
 `some.component.html` - _Growing from a target Element_
 ```html
-  <button (click)="openPopup({
+  <button #btnRef (click)="openPopup({
     event: $event,
     template: popupRef
   })" class="btn">OPEN POPUP</button>
 
   <nitro-popup #popupRef [config]="{
       delay: 500,
-      origin: btn,
+      origin: btnRef,
       width: '100%',
       height: '100%',
       id: 'popupDemo',
@@ -294,7 +295,8 @@ import { PopupModule } from 'nitro-popup';
   <div class="customContextMenu" (contextmenu)="openPopup({
       event: $event,
       template: menu
-    })" style="width: 100%; height: 100%; top:0; left:0; position: fixed;"></div>
+    })" style="width: 100%; height: 100%; top:0; left:0; position: fixed;background: rgba(0,0,0,0.2)">Right Button Click this area to get the CUSTOM MENU</div>
+
   <nitro-popup #menu [config]="{
     width: 'auto',
     height: 'auto',

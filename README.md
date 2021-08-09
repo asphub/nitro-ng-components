@@ -93,11 +93,11 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.6&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.9&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=Angular&message=12.0.0&color=green?style=for-the-badge&logo=angular)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=Angular&message=12.0.2&color=green?style=for-the-badge&logo=angular)
 ](https://www.npmjs.com/package/nitro-popup)
 
 Nitro Popup can be used for Popups / Modals / Dialog Boxes and even also this can be used as context menu also. Inbuilt support added for overriding context menus.

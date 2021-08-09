@@ -93,7 +93,7 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 # Nitro Popup
 
 [
-  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.0.9&color=green?style=for-the-badge&logo=npm)
+  ![Angular Library - Nitro Popup](https://img.shields.io/static/v1?label=npm+package&message=0.1.0-beta1&color=green?style=for-the-badge&logo=npm)
 ](https://www.npmjs.com/package/nitro-popup)
 
 [
@@ -104,11 +104,12 @@ Nitro Popup can be used for Popups / Modals / Dialog Boxes and even also this ca
 
 ## Features:
 
-1. *Light weight*
-2. *Fully configurable with just one JSON object for each Popup*
+1. *Light weight plugin*
+2. *Fully configurable with just one `JSON` object for each Popup*
 3. *Layouts & Templates can be controlled using `<ng-template>`*
-4. *Easy Override with CSS styles*
-5. *In-Built Animation Support*
+4. *Easy Override with `CSS` styles*
+5. *In-Built animation support*
+6. *Can be used as custom `context menu` also*
 
 ## Usage
 
@@ -319,17 +320,19 @@ import { PopupModule } from 'nitro-popup';
 ## API:
 |Name|Type|Default|Description|
 |---|---|---|---|
-|`id`|`String`| `""` | <details><summary>*ID*</summary>This will set an ID for the popup template (Keep it unique) <br><br>__Eg.:__<br>`<nitro-popup [config]="{id: 'popupName'...}"></nitro-popup>`<br><br>__Accepted Values:__<br>`<any_string>`<br><br><blockquote>ID String will also be added as a class for the popup also.</blockquote></details>|
-|`width` and `height`|`String`| `100%` | <details><summary>*Width and height of popup*</summary>Set width and height of the popup. The width can be of `%`, `px` or `auto` values as a string<br>__Eg.:__<br>`<nitro-popup [config]="{width: '600px', height: 'auto'}"></nitro-popup>`</details>|
-|`css`|`JSON`| `""` | <details><summary>*Add custom CSS*</summary>Custom css will be applied as inline style to the Popup<br>__Eg.:__<br>`<nitro-popup [config]="{ css: {'max-width': '100vw','max-height': '100vh'}}"></nitro-popup>`</details>|
-|`animateIn`|`String`| `""` | <details><summary>*Class for Animate In*</summary> AnimateIn Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateIn: 'zoomIn'}"></nitro-popup>`</details>|
-|`animateOut`|`String`| `""` | <details><summary>*Class for Animate Out*</summary> AnimateOut Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateOut: 'zoomOut' }"></nitro-popup>`</details>|
-|`overlay`| `String` / `boolean`| `true` | <details><summary>*Various Overlay Types*</summary>Toggle Overlay Show/Hide or blocks/allow clicks outside the popup<br>Accepted Values are `true`, `false`, `transparent`, `none`, `transparent_none` <br>__Eg.:__<br>`<nitro-popup [config]="{overlay: 'transparent'}"></nitro-popup>`</details>|
-|`headerLayout`|`TemplateRef`| `null` | <details><summary>*Header Template*</summary>HTML Template for header<br>__Eg.:__<br>`<nitro-popup [config]="{headerLayout: headerTemplateElementRef}"></nitro-popup>`</details>|
-|`footerLayout`|`TemplateRef`| `null` | <details><summary>*Footer Template*</summary>HTML Template for footer<br>__Eg.:__<br>`<nitro-popup [config]="{footerLayout: footerTemplateElementRef}"></nitro-popup>`</details>|
-|`contentLayout`|`TemplateRef`| `null` | <details><summary>*Content Template*</summary>HTML Template for content<br>__Eg.:__<br>`<nitro-popup [config]="{contentLayout: contentTemplateElementRef}"></nitro-popup>`</details>|
-|`sideLayout`|`TemplateRef`| `null` | <details><summary>*Left Side Template*</summary>HTML Template for side<br>__Eg.:__<br>`<nitro-popup [config]="{sideLayout: sideTemplateElementRef}"></nitro-popup>`</details>|
-|`customLayout`|`TemplateRef`| `null` | <details><summary>*custom Layout Template*</summary>Custom HTML Template for Popup<br>__Eg.:__<br>`<nitro-popup [config]="{customLayout: sideTemplateElementRef}"></nitro-popup>`</details>|
+|`id`|`String`| `""` | <details><summary>*ID*</summary><hr>This will set an ID for the popup template (Keep it unique) <br><br>__Eg.:__<br>`<nitro-popup [config]="{id: 'popupName'...}"></nitro-popup>`<br><br>__Accepted Values:__<br>`<any_string>`<br><br><blockquote>ID String will also be added as a class for the popup also.</blockquote></details>|
+|`width` & `height`|`String`| `100%` | <details><summary>*Width and height of popup*</summary><hr>Set width and height of the popup. The width can be of `%`, `px` or `auto` values as a string<br>__Eg.:__<br>`<nitro-popup [config]="{width: '600px', height: 'auto'}"></nitro-popup>`</details>|
+|`css`|`JSON`| `""` | <details><summary>*Add custom CSS*</summary><hr>Custom css will be applied as inline style to the Popup<br>__Eg.:__<br>`<nitro-popup [config]="{ css: {'max-width': '100vw','max-height': '100vh'}}"></nitro-popup>`</details>|
+|`animateIn`|`String`| `""` | <details><summary>*Class for Animate In*</summary><hr> AnimateIn Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateIn: 'zoomIn'}"></nitro-popup>`</details>|
+|`animateOut`|`String`| `""` | <details><summary>*Class for Animate Out*</summary><hr>AnimateOut Class will be applied to the Popup at opening event<br>__Eg.:__<br>`<nitro-popup [config]="{ animateOut: 'zoomOut' }"></nitro-popup>`</details>|
+|`level`|`Number`| `0` | <details><summary>*Updating the Layer Order*</summary><hr>The default `z-index` of Popup is `1050` and the level value will be added with `1050`.<br>__NB:__ You can also decrease the `z-index` value by giving negative value as level<br>__Eg.:__<br>`<nitro-popup [config]="{ level: '-1049' }"></nitro-popup>`<br><cite>Will set the popup layer `z-index: 1`.</cite> </details>|
+|`overlay`| `String` / `boolean`| `true` | <details><summary>*Various Overlay Types*</summary><hr>Toggle Overlay Show/Hide or blocks/allow clicks outside the popup<br>Accepted Values are `true`, `false`, `transparent`, `none`, `transparent_none` <br>__Eg.:__<br>`<nitro-popup [config]="{overlay: 'transparent'}"></nitro-popup>`</details>|
+|`headerLayout`|`TemplateRef`| `null` | <details><summary>*Header Template*</summary><hr>HTML Template for header<br>__Eg.:__<br>`<nitro-popup [config]="{headerLayout: headerTemplateElementRef}"></nitro-popup>`</details>|
+|`footerLayout`|`TemplateRef`| `null` | <details><summary>*Footer Template*</summary><hr>HTML Template for footer<br>__Eg.:__<br>`<nitro-popup [config]="{footerLayout: footerTemplateElementRef}"></nitro-popup>`</details>|
+|`contentLayout`|`TemplateRef`| `null` | <details><summary>*Content Template*</summary><hr>HTML Template for content<br>__Eg.:__<br>`<nitro-popup [config]="{contentLayout: contentTemplateElementRef}"></nitro-popup>`</details>|
+|`sideLayout`|`TemplateRef`| `null` | <details><summary>*Left Side Template*</summary><hr>HTML Template for side<br>__Eg.:__<br>`<nitro-popup [config]="{sideLayout: sideTemplateElementRef}"></nitro-popup>`</details>|
+|`customLayout`|`TemplateRef`| `null` | <details><summary>*custom Layout Template*</summary><hr>Custom HTML Template for Popup<br>__Eg.:__<br>`<nitro-popup [config]="{customLayout: sideTemplateElementRef}"></nitro-popup>`</details>|
 
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version `12.0.0`.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version `12.2.0`.
+

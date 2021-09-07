@@ -1,5 +1,5 @@
 # Nitro Angular Components Library
-Nitro is an upcoming Angular Components Library, which helps developer to integrate Angular components easily and are built with fully customizable options.
+Nitro is an Angular Components Library, which helps developer to integrate Angular components easily and are built with fully customizable options.
 
 # Nitro OTP
 
